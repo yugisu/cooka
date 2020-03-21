@@ -4,8 +4,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "nodemon -q -w ./src -e ts,json -x \"clear && tsc && NODE_PATH=./dist node dist\"",
-    "build": "shx rm -rf ./dist && tsc",
+    "dev": "nodemon -q -w ./src -e ts,json -x \"clear && yarn build && yarn start\"",
+    "build": "shx rm -rf ./dist && tsc -b",
     "start": "NODE_PATH=./dist node ./dist",
     "typeorm": "NODE_PATH=./dist typeorm"
   },

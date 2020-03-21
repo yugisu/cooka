@@ -1,7 +1,7 @@
 import { Express } from 'express'
 
-import { helloRouter } from './hello.route'
+import { recipeRouter } from './recipe.route'
 
 export const initializeRoutes = (app: Express) => {
-  app.use('/', helloRouter)
+  app.use('/recipes', recipeRouter)
 }

@@ -2,8 +2,5 @@
   "name": "@cookit/shared",
   "version": "1.0.0",
   "license": "MIT",
-  "private": true,
-  "dependencies": {
-    "typescript": "^3.8.3"
-  }
+  "private": true
 }
