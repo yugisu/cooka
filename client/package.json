@@ -1,5 +1,5 @@
 {
-  "name": "@cooka/client",
+  "name": "@cookit/client",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@cooka/shared": "1.0.0",
+    "@cookit/shared": "1.0.0",
     "polished": "^3.5.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

@@ -1,3 +1,3 @@
-# @cooka/client ☁
+# @cookit/client ☁
 
-Client part of `cooka 👨‍🍳`.
+Client part of `cookit 👨‍🍳`.
