@@ -1,0 +1,26 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Production
+build/
+dist/
+lib/
+
+# Testing
+coverage
+lib-cov
+
+# Misc
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+ormconfig.json
+
+# Logs
+logs
+*.log
