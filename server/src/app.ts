@@ -1,19 +1,15 @@
 import express from 'express'
-import cookieParser from 'cookie-parser'
-import logger from 'morgan'
 import dotenv from 'dotenv'
 
 import { initializeRoutes } from './routes'
+import { initializeMiddlewares } from './middlewares'
 
 dotenv.config()
 
 const app = express()
 
-// Middlewares
-app.use(logger('dev'))
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
-app.use(cookieParser())
+// Initialize middleware
+initializeMiddlewares(app)
 
 // Initialize routes
 initializeRoutes(app)
