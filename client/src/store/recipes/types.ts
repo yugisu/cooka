@@ -1,4 +1,4 @@
-import { RecipeType } from 'types/recipe'
+import { RecipeType } from 'types/recipe.type'
 
 export const RECIPES_FETCH_INIT = 'RECIPES_FETCH_INIT'
 export const RECIPES_FETCH_SUCCESS = 'RECIPES_FETCH_SUCCESS'

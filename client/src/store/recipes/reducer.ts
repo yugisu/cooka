@@ -1,4 +1,4 @@
-import { RecipeType } from 'types/recipe'
+import { RecipeType } from 'types/recipe.type'
 
 import * as actions from './types'
 
@@ -31,17 +31,17 @@ export const recipeReducer = (state = initialState, action: actions.RecipeAction
 
       return {
         ...state,
-        keys: [...state.keys, ...keys],
-        items: { ...state.items, ...items },
         loading: false,
         error: null,
+        keys: [...state.keys, ...keys],
+        items: { ...state.items, ...items },
       }
 
     case actions.RECIPES_FETCH_FAILURE:
       return {
         ...state,
-        error: action.payload,
         loading: false,
+        error: action.payload,
       }
 
     default:
