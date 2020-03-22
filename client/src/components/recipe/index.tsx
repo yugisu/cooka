@@ -45,11 +45,13 @@ const DateMark = styled.div`
   right: 0;
   transform: translate(10%, -50%);
 
-  padding: 0.25rem 0.5rem;
+  padding: 0.2rem 0.5rem;
 
   color: ${props => props.theme.colors.grey};
-  background-color: ${props => props.theme.colors.white};
+  font-size: 0.8rem;
+  font-weight: bold;
 
+  background-color: ${props => props.theme.colors.white};
   border-radius: 0.35rem;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 `
