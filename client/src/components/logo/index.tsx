@@ -1,8 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { lighten } from 'polished'
+import { Link } from 'react-router-dom'
 
-const Container = styled.a`
+import { ROUTES } from 'configs/routes.config'
+
+const Container = styled(Link)`
   width: 4.4rem;
 
   display: flex;
@@ -42,7 +45,7 @@ const Container = styled.a`
 
 export const Logo = () => {
   return (
-    <Container href="/">
+    <Container to={ROUTES.MAIN}>
       <span>Cookit</span>
     </Container>
   )

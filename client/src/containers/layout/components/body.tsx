@@ -9,8 +9,8 @@ type Props = {
   children?: React.ReactNode
 }
 
-export const Main = ({ children }: Props) => {
+export const Body = ({ children }: Props) => {
   return <Container>{children}</Container>
 }
 
-Main.Container = Container
+Body.Container = Container
