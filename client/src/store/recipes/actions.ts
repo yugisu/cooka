@@ -1,3 +1,4 @@
+import { recipeService } from 'services/recipe.service'
 import { RecipeType } from 'types/recipe.type'
 import { Thunky } from 'store/types'
 
@@ -22,4 +23,14 @@ const fetchRecipesFailure = (payload: string): RecipeAction => ({
   payload,
 })
 
-export const fetchRecipes = (): Thunky => async dispatch => {}
+export const fetchRecipes = (): Thunky => async dispatch => {
+  dispatch(fetchRecipesInit())
+
+  try {
+    const recipes = await recipeService.getAll().json<RecipeType[]>()
+
+    dispatch(fetchRecipesSuccess(recipes))
+  } catch (error) {
+    dispatch(fetchRecipesFailure(error.message))
+  }
+}
