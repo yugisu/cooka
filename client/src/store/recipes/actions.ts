@@ -1,4 +1,4 @@
-import { RecipeType } from 'types/recipe'
+import { RecipeType } from 'types/recipe.type'
 import { Thunky } from 'store/types'
 
 import {
