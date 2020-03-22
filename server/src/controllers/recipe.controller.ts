@@ -6,28 +6,19 @@ import { recipeValidator } from 'shared/validation/recipe.validator'
 import { RecipeRepository } from 'data/repositories/recipe.repository'
 
 export const RecipeController = controller({
-  getAll: async (req, res) => {
-    const recipeRepository = getCustomRepository(RecipeRepository)
+  getAll: (req, res, next) =>
+    getCustomRepository(RecipeRepository)
+      .find()
+      .then(recipes => res.send(recipes))
+      .catch(next),
 
-    const recipes = await recipeRepository.find()
-
-    res.send(recipes)
-  },
-  create: async (req, res) => {
-    const recipeRepository = getCustomRepository(RecipeRepository)
-
-    try {
-      const validatedRecipe = await recipeValidator.validate(req.body, { stripUnknown: true })
-
-      const recipe = await recipeRepository.create(validatedRecipe).save()
-
-      res.send(recipe)
-    } catch (error) {
-      if (!(error instanceof ValidationError)) {
-        throw error
-      }
-
-      res.status(400).send({ message: 'Invalid recipe', details: error.message })
-    }
-  },
+  create: (req, res, next) =>
+    recipeValidator
+      .validate(req.body, { stripUnknown: true })
+      .then(recipe => getCustomRepository(RecipeRepository).create(recipe))
+      .then(recipe => recipe.save())
+      .then(recipe => res.send(recipe))
+      .catch(e =>
+        e instanceof ValidationError ? res.status(400).send({ message: e.message }) : next(e),
+      ),
 })
