@@ -1,9 +1,9 @@
 import { object, string } from 'yup'
 
 export const recipeValidator = object({
-  title: string().required(),
+  title: string().when('$partial', { is: true, otherwise: (s: any) => s.required() }),
   description: string()
     .max(200)
-    .required(),
-  body: string().required(),
+    .when('$partial', { is: true, otherwise: (s: any) => s.required() }),
+  body: string().when('$partial', { is: true, otherwise: (s: any) => s.required() }),
 })
