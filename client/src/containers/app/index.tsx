@@ -1,27 +1,23 @@
-import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
-import { Provider as StoreProvider } from 'react-redux'
 
-import { store } from 'store'
+import { initializeApp } from 'store/actions'
 import { theme } from 'configs/theme.config'
 
-import { Layout } from 'containers/layout'
 import { Routes } from 'containers/routes'
 import { GlobalStyles } from 'styles/global.style'
 
 export const App = () => {
-  return (
-    <BrowserRouter>
-      <StoreProvider store={store}>
-        <ThemeProvider theme={theme}>
-          <GlobalStyles />
+  const dispatch = useDispatch()
 
-          <Layout>
-            <Routes />
-          </Layout>
-        </ThemeProvider>
-      </StoreProvider>
-    </BrowserRouter>
+  useEffect(() => void dispatch(initializeApp()), [dispatch])
+
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+
+      <Routes />
+    </ThemeProvider>
   )
 }

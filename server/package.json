@@ -7,7 +7,10 @@
     "dev": "nodemon -q -w ./src -e ts,json -x \"clear && yarn build && yarn start\"",
     "build": "shx rm -rf ./dist && tsc -b",
     "start": "NODE_PATH=./dist node ./dist",
-    "typeorm": "NODE_PATH=./dist typeorm"
+    "typeorm": "NODE_PATH=./src ts-node ../node_modules/typeorm/cli.js",
+    "db:drop": "yarn typeorm schema:drop",
+    "db:migrate": "yarn typeorm migration:run",
+    "db:create-migration": "yarn typeorm migration:generate -n"
   },
   "dependencies": {
     "@types/cookie-parser": "^1.4.2",

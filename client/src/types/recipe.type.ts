@@ -1,5 +1,6 @@
 export type RecipeDataType = {
   title: string
+  image?: string
   description: string
   body: string
 }

@@ -6,16 +6,15 @@ import { Link } from 'react-router-dom'
 import { ROUTES } from 'configs/routes.config'
 
 const Container = styled(Link)`
-  width: 4.4rem;
+  width: 4.6rem;
 
   display: flex;
   flex-wrap: nowrap;
   justify-content: flex-end;
   align-items: center;
 
-  font-family: 'Rosario', sans-serif;
+  font-family: 'Fredoka One', cursive;
   font-size: 24px;
-  font-weight: bold;
   text-decoration: none;
   text-shadow: 1px 1px 0 ${props => props.theme.colors.secondary};
   color: inherit;
@@ -46,7 +45,7 @@ const Container = styled(Link)`
 export const Logo = () => {
   return (
     <Container to={ROUTES.MAIN}>
-      <span>Cookit</span>
+      <span>cookit</span>
     </Container>
   )
 }
