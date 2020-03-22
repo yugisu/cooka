@@ -13,14 +13,8 @@ export const Main = () => {
   ])
 
   return (
-    <Layout>
-      <Layout.Header />
-
-      <Layout.Body>
-        <Layout.Body.Title>All Recipes</Layout.Body.Title>
-
-        <RecipeList items={recipes} loading={recipeState.loading} />
-      </Layout.Body>
+    <Layout title="All recipes">
+      <RecipeList items={recipes} loading={recipeState.loading} />
     </Layout>
   )
 }
