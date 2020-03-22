@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Header } from './components/header'
-import { Main } from './components/main'
+import { Body } from './components/body'
 
 const Container = styled.div``
 
@@ -11,10 +11,9 @@ type Props = {
 }
 
 export const Layout = ({ children }: Props) => {
-  return (
-    <Container>
-      <Header />
-      <Main>{children}</Main>
-    </Container>
-  )
+  return <Container>{children}</Container>
 }
+
+Layout.Container = Container
+Layout.Header = Header
+Layout.Body = Body

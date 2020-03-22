@@ -6,7 +6,7 @@ export const theme = {
     white: '#fff',
     black: '#27201E',
     grey: '#707078',
-    bg: '#F9F9F9',
+    bg: '#F6F6F6',
   },
 }
 

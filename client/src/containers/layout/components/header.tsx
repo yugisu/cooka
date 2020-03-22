@@ -3,8 +3,18 @@ import styled from 'styled-components'
 
 import { Logo } from 'components/logo'
 
-const Container = styled.header`
+const Container = styled.div`
   height: 3rem;
+`
+
+const Inner = styled.header`
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: inherit;
 
   padding: 0 4rem;
   display: flex;
@@ -17,7 +27,9 @@ const Container = styled.header`
 export const Header = () => {
   return (
     <Container>
-      <Logo />
+      <Inner>
+        <Logo />
+      </Inner>
     </Container>
   )
 }
