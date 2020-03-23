@@ -13,6 +13,11 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: inherit;
   }
 
+  *:focus,
+  *:active {
+    outline-color: ${props => props.theme.colors.secondary};
+  }
+
   body {
     background-color: ${props => props.theme.colors.bg};
   }

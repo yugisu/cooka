@@ -44,6 +44,12 @@ export const recipeReducer = (state = initialState, action: actions.RecipeAction
         error: action.payload,
       }
 
+    case actions.RECIPES_ADD_RECIPE:
+      return {
+        ...state,
+        items: { ...state.items, [action.payload.id]: action.payload },
+      }
+
     default:
       return state
   }

@@ -7,19 +7,14 @@ import { Body } from './components/body'
 const Container = styled.div``
 
 type Props = {
-  title?: string
   children?: React.ReactNode
 }
 
-export const Layout = ({ title, children }: Props) => {
+export const Layout = ({ children }: Props) => {
   return (
     <Container>
       <Header />
-      <Body>
-        {title && <Body.Title>{title}</Body.Title>}
-
-        {children}
-      </Body>
+      <Body>{children}</Body>
     </Container>
   )
 }
@@ -27,3 +22,5 @@ export const Layout = ({ title, children }: Props) => {
 Layout.Container = Container
 Layout.Header = Header
 Layout.Body = Body
+
+export * from './components/page-title'

@@ -3,17 +3,14 @@ import styled from 'styled-components'
 
 import { RecipeType } from 'types/recipe.type'
 
-import { Recipe } from 'components/recipe'
-import { RecipePlaceholder } from 'components/recipe-placeholder'
+import { Recipe, RecipePlaceholder } from 'components/recipe'
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-  > ${Recipe.Container} {
-    &:not(:first-child) {
-      margin-top: 4rem;
-    }
+  > *:not(:first-child) {
+    margin-top: 4rem;
   }
 `
 
@@ -23,25 +20,15 @@ type Props = {
 }
 
 export const RecipeList = ({ items, loading = false }: Props) => {
-  if (loading) {
-    return (
-      <Container>
-        {Array(3)
-          .fill(null)
-          .map((_, idx) => (
-            <RecipePlaceholder key={`holder-${idx}`} />
-          ))}
-      </Container>
-    )
-  }
-
   return (
     <Container>
-      {items.length ? (
-        items.map(recipe => <Recipe recipe={recipe} key={`recipe-${recipe.id}`} />)
-      ) : (
-        <div>No recipes yet :(</div>
-      )}
+      {items.length
+        ? items.map(recipe => <Recipe recipe={recipe} key={`recipe-${recipe.id}`} />)
+        : !loading && <div>No recipes yet :(</div>}
+      {loading &&
+        Array(items.length ? 1 : 3)
+          .fill(null)
+          .map((_, idx) => <RecipePlaceholder key={`holder-${idx}`} />)}
     </Container>
   )
 }

@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
 
-import { Recipe } from 'components/recipe'
 import { TextPlaceholder } from 'components/text-placeholder'
 import { createBreath } from 'styles/keyframes/breath.keyframes'
 
-const Image = styled(Recipe.Image)`
+import * as S from './styled'
+
+const Image = styled(S.Image)`
   background-color: currentColor;
 
   animation: ${createBreath()} 1s alternate-reverse infinite;
@@ -13,18 +14,20 @@ const Image = styled(Recipe.Image)`
 
 export const RecipePlaceholder = React.memo(
   () => {
+    const shouldDisplayImage = useRef(Math.random() > 0.4).current
+
     return (
-      <Recipe.Container>
-        <Image as="div" />
-        <Recipe.Content>
-          <Recipe.Title>
+      <S.Container>
+        {shouldDisplayImage && <Image as="div" />}
+        <S.Content>
+          <S.Title>
             <TextPlaceholder lineAmount={1} />
-          </Recipe.Title>
-          <Recipe.Description as="div">
+          </S.Title>
+          <S.Description>
             <TextPlaceholder lineAmount={3} />
-          </Recipe.Description>
-        </Recipe.Content>
-      </Recipe.Container>
+          </S.Description>
+        </S.Content>
+      </S.Container>
     )
   },
   () => true,

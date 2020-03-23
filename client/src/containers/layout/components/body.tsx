@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { desktop } from 'utils/media.util'
 
 const Container = styled.div`
-  padding: 2rem 4rem;
+  padding: 2rem 4rem 6rem;
 
   display: flex;
   flex-direction: column;
@@ -15,13 +15,6 @@ const Inner = styled.div`
   ${desktop.css`
       width: 700px;
   `}
-`
-
-const Title = styled.h1`
-  margin: 1rem 0 3rem;
-
-  font-size: 3rem;
-  text-shadow: 1px 1px 0 ${props => props.theme.colors.secondary};
 `
 
 type Props = {
@@ -37,4 +30,3 @@ export const Body = ({ children }: Props) => {
 }
 
 Body.Container = Container
-Body.Title = Title

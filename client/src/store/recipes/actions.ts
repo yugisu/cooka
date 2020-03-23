@@ -6,6 +6,7 @@ import {
   RECIPES_FETCH_INIT,
   RECIPES_FETCH_SUCCESS,
   RECIPES_FETCH_FAILURE,
+  RECIPES_ADD_RECIPE,
   RecipeAction,
 } from './types'
 
@@ -20,6 +21,11 @@ const fetchRecipesSuccess = (payload: RecipeType[]): RecipeAction => ({
 
 const fetchRecipesFailure = (payload: string): RecipeAction => ({
   type: RECIPES_FETCH_FAILURE,
+  payload,
+})
+
+export const addRecipe = (payload: RecipeType): RecipeAction => ({
+  type: RECIPES_ADD_RECIPE,
   payload,
 })
 

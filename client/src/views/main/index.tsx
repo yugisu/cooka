@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 
-import { Layout } from 'containers/layout'
+import { PageTitle } from 'containers/layout'
 import { RecipeList } from 'containers/recipe-list'
 
 export const Main = () => {
@@ -13,8 +13,10 @@ export const Main = () => {
   ])
 
   return (
-    <Layout title="All recipes">
+    <>
+      <PageTitle>All recipes</PageTitle>
+
       <RecipeList items={recipes} loading={recipeState.loading} />
-    </Layout>
+    </>
   )
 }

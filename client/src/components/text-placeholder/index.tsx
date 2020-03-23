@@ -1,12 +1,15 @@
 import React, { useRef, useEffect } from 'react'
 import styled from 'styled-components'
 
-import { useForceUpdate } from 'utils/force-update.util'
+import { useForceUpdate } from 'utils/use-force-update.util'
 import { createBreath } from 'styles/keyframes/breath.keyframes'
 
-const Container = styled.div<{ gap?: number }>``
+const Container = styled.span<{ gap?: number }>`
+  display: block;
+`
 
-const Line = styled.div<{ length: number }>`
+const Line = styled.span<{ length: number }>`
+  display: inline-block;
   width: ${props => props.length}%;
 
   font-size: inherit;
@@ -25,7 +28,7 @@ const Line = styled.div<{ length: number }>`
   }
 
   &::before {
-    content: '&nbsp;';
+    content: '\u00A0';
   }
 `
 
@@ -62,3 +65,5 @@ export const TextPlaceholder = ({ lineAmount, disableAnimation, gap }: Props) =>
     </Container>
   )
 }
+
+TextPlaceholder.Line = Line

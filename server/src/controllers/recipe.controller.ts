@@ -13,6 +13,12 @@ export const RecipeController = controller({
       .then(recipes => res.send(recipes))
       .catch(next),
 
+  getById: (req, res, next) =>
+    getCustomRepository(RecipeRepository)
+      .findOneOrFail({ where: { id: req.params.id } })
+      .then(recipe => res.send(recipe))
+      .catch(next),
+
   create: (req, res, next) =>
     recipeValidator
       .validate(req.body, { stripUnknown: true })
