@@ -3,10 +3,9 @@ import { useParams, useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
-import { api } from 'utils/api.util'
-import { RecipeType } from 'types/recipe.type'
 import { ROUTES } from 'configs/routes.config'
 import { addRecipe } from 'store/recipes/actions'
+import { recipeService } from 'services/recipe.service'
 
 import { ExpandedRecipe, ExpandedRecipePlaceholder } from 'components/expanded-recipe'
 
@@ -36,11 +35,10 @@ export const ViewRecipe = () => {
 
   useEffect(() => {
     if (recipeId !== null) {
-      api
-        .get(`/recipes/${recipeId}`)
-        .json<RecipeType>()
-        .then(recipe => dispatch(addRecipe(recipe)))
-        .catch(redirectToMain)
+      recipeService
+        .getOne(recipeId)
+        .then(recipe => (recipe ? dispatch(addRecipe(recipe)) : redirectToMain()))
+        .catch(console.error)
     } else {
       redirectToMain()
     }

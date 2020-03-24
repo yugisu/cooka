@@ -15,8 +15,8 @@ export const RecipeController = controller({
 
   getById: (req, res, next) =>
     getCustomRepository(RecipeRepository)
-      .findOneOrFail({ where: { id: req.params.id } })
-      .then(recipe => res.send(recipe))
+      .findOne({ where: { id: req.params.id } })
+      .then(recipe => res.send({ result: recipe || null }))
       .catch(next),
 
   create: (req, res, next) =>

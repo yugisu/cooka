@@ -33,7 +33,7 @@ export const fetchRecipes = (): Thunky => async dispatch => {
   dispatch(fetchRecipesInit())
 
   try {
-    const recipes = await recipeService.getAll().json<RecipeType[]>()
+    const recipes = await recipeService.getAll()
 
     dispatch(fetchRecipesSuccess(recipes))
   } catch (error) {
