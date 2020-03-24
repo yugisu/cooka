@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { mobile } from 'utils/media.util'
+
 export const Container = styled.article`
   background-color: ${props => props.theme.colors.white};
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
@@ -15,25 +17,16 @@ export const Image = styled.img`
 
   border-radius: 0.35rem 0.35rem 0 0;
   user-select: none;
+
+  ${mobile.css`
+    height: 14rem;
+  `}
 `
 
 export const Content = styled.div`
   position: relative;
 
   padding: 2rem 1rem 2.5rem;
-`
-
-export const Meta = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-
-  color: ${props => props.theme.colors.grey};
-  font-size: 0.8rem;
-
-  > *:not(:first-child) {
-    margin-left: 0.5rem;
-  }
 `
 
 export const DateMark = styled.div`
@@ -59,6 +52,10 @@ export const Title = styled.h1`
   width: 100%;
 
   font-size: 2.5rem;
+
+  ${mobile.css`
+    font-size: 1.75rem;
+  `}
 `
 
 export const Description = styled.p``

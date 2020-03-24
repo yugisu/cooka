@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { mobile } from 'utils/media.util'
+
 import { Logo } from 'components/logo'
 
 const Container = styled.div`
@@ -22,6 +24,10 @@ const Inner = styled.header`
 
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   background-color: ${props => props.theme.colors.white};
+
+  ${mobile.css`
+    padding: 0 1rem;
+  `}
 `
 
 export const Header = () => {

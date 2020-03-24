@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { mobile } from 'utils/media.util'
 import { RecipeType } from 'types/recipe.type'
 
 import { Recipe, RecipePlaceholder } from 'components/recipe'
@@ -10,7 +11,11 @@ const Container = styled.div`
   flex-direction: column;
 
   > *:not(:first-child) {
-    margin-top: 4rem;
+    margin-top: 3rem;
+
+    ${mobile.css`
+      margin-top: 2rem;
+    `}
   }
 `
 

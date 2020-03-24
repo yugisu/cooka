@@ -14,7 +14,7 @@ const Container = styled(Link)`
   align-items: center;
 
   font-family: 'Fredoka One', cursive;
-  font-size: 24px;
+  font-size: 1.5rem;
   text-decoration: none;
   text-shadow: 1px 1px 0 ${props => props.theme.colors.secondary};
   color: inherit;

@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
+import { mobile } from 'utils/media.util'
+
 export const GlobalStyles = createGlobalStyle`
   html {
     box-sizing: border-box;
@@ -7,6 +9,10 @@ export const GlobalStyles = createGlobalStyle`
     color: ${props => props.theme.colors.black};
     font-family: Roboto, sans-serif;
     font-size: 16px;
+
+    ${mobile.css`
+      font-size: 14px;
+    `}
   }
 
   *, *:before, *:after {
