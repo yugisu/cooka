@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
+import { mobile } from 'utils/media.util'
+
 export const LinkContainer = styled(Link)`
   display: block;
   color: inherit;
@@ -41,12 +43,26 @@ export const Image = styled.img`
 
   border-radius: 0.35rem 0.35rem 0 0;
   user-select: none;
+
+  ${mobile.css`
+    height: 12rem;
+  `}
 `
 
 export const Content = styled.div`
   position: relative;
 
   padding: 2rem 1rem 2.5rem;
+
+  ${mobile.css`
+    padding: 1rem 1rem 1.5rem;
+  `}
+
+  &:first-child {
+    ${mobile.css`
+      padding-top: 1.5rem;
+    `}
+  }
 `
 
 export const DateMark = styled.div`
@@ -77,6 +93,10 @@ export const Title = styled.h3`
 
   font-size: 1.5rem;
   font-weight: normal;
+
+  ${mobile.css`
+    margin-bottom: 0.75rem;
+  `}
 `
 
 export const Description = styled.p``

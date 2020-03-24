@@ -3,6 +3,7 @@ import { useParams, useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
 
+import { tablet } from 'utils/media.util'
 import { ROUTES } from 'configs/routes.config'
 import { addRecipe } from 'store/recipes/actions'
 import { recipeService } from 'services/recipe.service'
@@ -11,6 +12,10 @@ import { ExpandedRecipe, ExpandedRecipePlaceholder } from 'components/expanded-r
 
 const Container = styled.div`
   padding-top: 2rem;
+
+  ${tablet.css`
+    padding-top: 0;
+  `}
 `
 
 export const ViewRecipe = () => {
